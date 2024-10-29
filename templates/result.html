@@ -1,0 +1,114 @@
+<!-- <body class=" p-8">
+    <div class="container mx-auto">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Product Reviews</h2>
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+                <thead class="bg-gray-100 border-b">
+                    <tr>
+                        <th class="py-3 px-5 text-left text-gray-600 font-semibold uppercase tracking-wider">Product
+                        </th>
+                        <th class="py-3 px-5 text-left text-gray-600 font-semibold uppercase tracking-wider">Customer
+                            Name</th>
+                        <th class="py-3 px-5 text-left text-gray-600 font-semibold uppercase tracking-wider">Rating</th>
+                        <th class="py-3 px-5 text-left text-gray-600 font-semibold uppercase tracking-wider">Heading
+                        </th>
+                        <th class="py-3 px-5 text-left text-gray-600 font-semibold uppercase tracking-wider">Comment
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <tr class="hover:bg-gray-50">
+                        <td class="py-4 px-5 text-gray-700">Product A</td>
+                        <td class="py-4 px-5 text-gray-700">John Doe</td>
+                        <td class="py-4 px-5 text-yellow-500">★★★★☆</td>
+                        <td class="py-4 px-5 text-gray-700">Great Product!</td>
+                        <td class="py-4 px-5 text-gray-700">Really enjoyed this product; it exceeded my expectations.
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="py-4 px-5 text-gray-700">Product B</td>
+                        <td class="py-4 px-5 text-gray-700">Jane Smith</td>
+                        <td class="py-4 px-5 text-yellow-500">★★★☆☆</td>
+                        <td class="py-4 px-5 text-gray-700">Good, but could be better</td>
+                        <td class="py-4 px-5 text-gray-700">The product is okay but has some issues that need
+                            improvement.</td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="py-4 px-5 text-gray-700">Product C</td>
+                        <td class="py-4 px-5 text-gray-700">Alice Johnson</td>
+                        <td class="py-4 px-5 text-yellow-500">★★★★★</td>
+                        <td class="py-4 px-5 text-gray-700">Excellent!</td>
+                        <td class="py-4 px-5 text-gray-700">Fantastic product! Highly recommend it to everyone.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body> -->
+{%extends 'base.html'%}
+{% block body %}
+
+
+<div class="container mx-auto">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Product Reviews</h2>
+    <div class="overflow-x-auto">
+        <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+            <thead class="bg-gray-100 border-b">
+                <tr>
+                    <th class="py-3 px-5 text-left text-gray-600 font-semibold uppercase tracking-wider">Product
+                    </th>
+                    <th class="py-3 px-5 text-left text-gray-600 font-semibold uppercase tracking-wider">Customer
+                        Name</th>
+                    <th class="py-3 px-5 text-left text-gray-600 font-semibold uppercase tracking-wider">Rating</th>
+                    <th class="py-3 px-5 text-left text-gray-600 font-semibold uppercase tracking-wider">Heading
+                    </th>
+                    <th class="py-3 px-5 text-left text-gray-600 font-semibold uppercase tracking-wider">Comment
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody class="divide-y divide-gray-200">
+                {% for search in reviews %}
+                <tr class="hover:bg-gray-50">
+                    <td class="py-4 px-5 text-gray-700">{{search['Product']}}</td>
+                    <td class="py-4 px-5 text-gray-700">{{search['Name']}}</td>
+                    <td class="py-4 px-5 text-yellow-500">{{search['Rating']}}</td>
+                    <td class="py-4 px-5 text-gray-700">{{search['CommentHead']}}</td>
+                    <td class="py-4 px-5 text-gray-700">{{search['Comment']}}
+                    </td>
+                    {% endfor %}
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+<!-- <div class="table-users">
+    <div class="header">Reviews</div>
+
+    <table cellspacing="0">
+        <tr>
+            <th>Product</th>
+            <th>Name</th>
+            <th>Rating</th>
+            <th>Comment Heading</th>
+            <th width="230">Comments</th>
+        </tr>
+        {% for search in reviews %}
+        <tr>
+            <td>{{search['Product']}}</td>
+            <td>{{search['Name']}}</td>
+            <td>{{search['Rating']}}</td>
+            <td>{{search['CommentHead']}}</td>
+            <td>{{search['Comment']}} </td>
+            {% endfor %}
+        </tr>
+    </table>
+</div> -->
+
+
+{% endblock %}
