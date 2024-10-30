@@ -24,26 +24,14 @@ def index():
         try:
             searchstring = request.form['content'].replace(" ", "")
             flipkart_url = 'https://www.flipkart.com/search?q=' + searchstring
-            # uClient = uReq(flipkart_url)
-            # flipkartpage = uClient.read()
-            # uClient.close()
-            # flipkart_html = bs(flipkartpage, "html.parser")
-            # bigboxes = flipkart_html.select("._1AtVbE Colin")
-            # req = Request(flipkart_url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36',
-            #                                      'Accept-Language': 'en-US,en;q=0.9',
-            #                                      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-            #                                      'Connection': 'keep-alive',
-            #                                      })
-            req = Request(
-                flipkart_url,
-                headers={
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0',
-                    'Accept-Language': 'en-US,en;q=0.9',
-                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-                    'Connection': 'keep-alive',
-                    'Referer': 'https://www.flipkart.com/'
-                }
-            )
+
+            req = Request(flipkart_url, headers={
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36',
+                'Accept-Language': 'en-US,en;q=0.9',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+                'Connection': 'keep-alive',
+                'Referer': 'https://www.flipkart.com/'
+            })
 
             uClient = uReq(req)
             # Read the page content
@@ -60,7 +48,7 @@ def index():
             product_link = "https://www.flipkart.com" + \
                 box.div.div.div.a['href']
             prodRes = requests.get(product_link, headers={
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36',
                 'Accept-Language': 'en-US,en;q=0.9',
                 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
                 'Connection': 'keep-alive',
