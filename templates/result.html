@@ -68,13 +68,13 @@
             </thead>
 
             <tbody class="divide-y divide-gray-200">
-                {% for search in reviews %}
+                {% for review in reviews %}
                 <tr class="hover:bg-gray-50">
-                    <td class="py-4 px-5 text-gray-700">{{search['Product']}}</td>
-                    <td class="py-4 px-5 text-gray-700">{{search['Name']}}</td>
-                    <td class="py-4 px-5 text-yellow-500">{{search['Rating']}}</td>
-                    <td class="py-4 px-5 text-gray-700">{{search['CommentHead']}}</td>
-                    <td class="py-4 px-5 text-gray-700">{{search['Comment']}}
+                    <td class="py-4 px-5 text-gray-700">{{review['Product']}}</td>
+                    <td class="py-4 px-5 text-gray-700">{{review['Name']}}</td>
+                    <td class="py-4 px-5 text-yellow-500">{{review['Rating']}}</td>
+                    <td class="py-4 px-5 text-gray-700">{{review['CommentHead']}}</td>
+                    <td class="py-4 px-5 text-gray-700">{{review['Comment']}}
                     </td>
                     {% endfor %}
                 </tr>

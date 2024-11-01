@@ -17,7 +17,7 @@ def homePage():
 
 
 # route to show the review comments in a web UI
-@app.route('/search', methods=['POST', 'GET'])
+@app.route('/review', methods=['POST', 'GET'])
 @cross_origin()
 def index():
     if request.method == 'POST':
