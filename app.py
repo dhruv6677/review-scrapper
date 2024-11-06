@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup as bs
 from urllib.request import urlopen as uReq, Request
 
 app = Flask(__name__)
+CORS(app, resources={r"/review": {"origins": "*"}})
 
 
 @app.route('/', methods=['GET'])  # route to display the home page
@@ -26,7 +27,7 @@ def index():
             flipkart_url = 'https://www.flipkart.com/search?q=' + searchstring
 
             req = Request(flipkart_url, headers={
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.0.0 Safari/537.36',
                 'Accept-Language': 'en-US,en;q=0.9',
                 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
                 'Connection': 'keep-alive',
