@@ -8,7 +8,6 @@ from bs4 import BeautifulSoup as bs
 from urllib.request import urlopen as uReq, Request
 
 app = Flask(__name__)
-CORS(app, resources={r"/review": {"origins": "*"}})
 
 
 @app.route('/', methods=['GET'])  # route to display the home page
